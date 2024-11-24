@@ -146,16 +146,6 @@ Detailed documentation is available in the `/docs` directory:
 - [Component Documentation](docs/components.md)
 - [Firebase Setup Guide](docs/firebase-setup.md)
 
-## 🤝 Contributing
-
-We welcome contributions! Please see our [Contributing Guide](CONTRIBUTING.md) for details.
-
-1. Fork the repository
-2. Create your feature branch
-3. Commit your changes
-4. Push to the branch
-5. Open a Pull Request
-
 ## 📄 License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
