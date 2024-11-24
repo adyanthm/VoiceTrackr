@@ -138,13 +138,43 @@ This project uses:
 - Prettier for code formatting
 - TypeScript for type checking
 
-## 📚 Documentation
+## 🤝 Contributing
 
-Detailed documentation is available in the `/docs` directory:
+We welcome contributions! However, please note that direct commits to the main branch are not accepted. Please follow these steps:
 
-- [API Documentation](docs/api.md)
-- [Component Documentation](docs/components.md)
-- [Firebase Setup Guide](docs/firebase-setup.md)
+1. Fork the repository
+2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
+
+### Pull Request Process
+
+1. Ensure any install or build dependencies are removed before the end of the layer when doing a build
+2. Update the README.md with details of changes to the interface, if applicable
+3. The PR will be merged once you have the sign-off of at least one maintainer
+4. Please add proper documentation and tests for your changes
+
+### Branch Naming Convention
+
+- Feature: `feature/feature-name`
+- Bug Fix: `fix/bug-name`
+- Documentation: `docs/what-you-documented`
+- Configuration: `config/what-you-configured`
+
+### Commit Message Convention
+
+We follow the [Conventional Commits](https://www.conventionalcommits.org/) specification:
+
+- feat: A new feature
+- fix: A bug fix
+- docs: Documentation only changes
+- style: Changes that do not affect the meaning of the code
+- refactor: A code change that neither fixes a bug nor adds a feature
+- test: Adding missing tests or correcting existing tests
+- chore: Changes to the build process or auxiliary tools
+
+Example: `feat: add user authentication system`
 
 ## 📄 License
 
