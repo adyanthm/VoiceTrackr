@@ -193,6 +193,9 @@ For support, please:
 
 - Open an issue
 - Email me at adyanth.mani@gmail.com
+- 
+## 🏷️ Keywords
+`ai` `voice-assistant` `nextjs` `tailwindcss` `firebase` `saas` `white-label` `communication` `voice-recognition` `no-code` `react` `typescript` `openai` `client-management` `agency-tools`
 
 ## 🔮 Roadmap
 
