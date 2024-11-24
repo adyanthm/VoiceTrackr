@@ -2,20 +2,262 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+body {
+  @apply antialiased;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+/* Rich gradient animation */
+@keyframes gradient-shift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
   }
 }
 
-body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+.gradient-animate {
+  animation: gradient-shift 15s ease infinite;
+  background-size: 200% 200%;
+}
+
+/* Add this to your existing CSS */
+input[type="range"] {
+  -webkit-appearance: none;
+  appearance: none;
+  height: 8px;
+  border-radius: 4px;
+  --range-progress: 0%;
+  
+  &::-webkit-slider-runnable-track {
+    background: linear-gradient(
+      to right,
+      #7C3AED var(--range-progress),
+      #251D40 var(--range-progress)
+    );
+  }
+}
+
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: #9333ea;
+  cursor: pointer;
+  border: 4px solid #1a1535;
+  box-shadow: 0 0 0 2px #9333ea;
+}
+
+input[type="range"]::-moz-range-thumb {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: #9333ea;
+  cursor: pointer;
+  border: 4px solid #1a1535;
+  box-shadow: 0 0 0 2px #9333ea;
+}
+
+/* Natural starfield with many more stars */
+.night-sky {
+  position: absolute;
+  inset: 0;
+  background: 
+    linear-gradient(to bottom right, 
+      rgba(76, 29, 149, 0.1) 0%,
+      rgba(13, 11, 33, 0.9) 100%
+    ),
+    url('/noise.png') repeat,
+    radial-gradient(circle at center,
+      #1a1535 0%,
+      #0D0B21 100%
+    );
+  background-blend-mode: overlay, overlay, normal;
+}
+
+.stars {
+  position: absolute;
+  inset: 0;
+  background: 
+    /* Small stars */
+    radial-gradient(1px 1px at 23% 17%, white 1px, transparent 0),
+    radial-gradient(1px 1px at 47% 6%, white 1px, transparent 0),
+    radial-gradient(1px 1px at 82% 31%, white 1px, transparent 0),
+    radial-gradient(1px 1px at 12% 52%, white 1px, transparent 0),
+    radial-gradient(1px 1px at 63% 29%, white 1px, transparent 0),
+    radial-gradient(1px 1px at 93% 74%, white 1px, transparent 0),
+    radial-gradient(1px 1px at 34% 83%, white 1px, transparent 0),
+    radial-gradient(1px 1px at 68% 67%, white 1px, transparent 0),
+    radial-gradient(1px 1px at 15% 91%, white 1px, transparent 0),
+    radial-gradient(1px 1px at 88% 12%, white 1px, transparent 0),
+    /* Medium stars */
+    radial-gradient(2px 2px at 8% 42%, white 1px, transparent 0),
+    radial-gradient(2px 2px at 31% 77%, white 1px, transparent 0),
+    radial-gradient(2px 2px at 72% 23%, white 1px, transparent 0),
+    radial-gradient(2px 2px at 59% 89%, white 1px, transparent 0),
+    radial-gradient(2px 2px at 91% 38%, white 1px, transparent 0),
+    radial-gradient(2px 2px at 25% 31%, white 1px, transparent 0),
+    radial-gradient(2px 2px at 52% 58%, white 1px, transparent 0),
+    radial-gradient(2px 2px at 84% 63%, white 1px, transparent 0),
+    /* Larger glowing stars */
+    radial-gradient(3px 3px at 19% 63%, rgba(255,255,255,0.9) 1px, transparent 2px),
+    radial-gradient(3px 3px at 43% 27%, rgba(255,255,255,0.9) 1px, transparent 2px),
+    radial-gradient(3px 3px at 76% 48%, rgba(255,255,255,0.9) 1px, transparent 2px),
+    radial-gradient(3px 3px at 94% 86%, rgba(255,255,255,0.9) 1px, transparent 2px),
+    /* Extra bright stars */
+    radial-gradient(3px 3px at 37% 96%, rgba(255,255,255,1) 1px, transparent 3px),
+    radial-gradient(3px 3px at 66% 13%, rgba(255,255,255,1) 1px, transparent 3px),
+    radial-gradient(3px 3px at 82% 51%, rgba(255,255,255,1) 1px, transparent 3px),
+    /* More tiny stars for density */
+    radial-gradient(1px 1px at 28% 43%, white 1px, transparent 0),
+    radial-gradient(1px 1px at 54% 73%, white 1px, transparent 0),
+    radial-gradient(1px 1px at 77% 35%, white 1px, transparent 0),
+    radial-gradient(1px 1px at 91% 92%, white 1px, transparent 0),
+    radial-gradient(1px 1px at 14% 24%, white 1px, transparent 0),
+    radial-gradient(1px 1px at 38% 84%, white 1px, transparent 0),
+    radial-gradient(1px 1px at 63% 46%, white 1px, transparent 0),
+    radial-gradient(1px 1px at 86% 71%, white 1px, transparent 0);
+  opacity: 0.9;
+}
+
+/* Shooting star with longer pause */
+.shooting-star {
+  position: absolute;
+  bottom: -5%;
+  left: -5%;
+  width: 3px;
+  height: 3px;
+  background: white;
+  border-radius: 50%;
+  box-shadow: 0 0 0 4px rgba(255,255,255,0.1),
+              0 0 0 8px rgba(255,255,255,0.1),
+              0 0 20px rgba(255,255,255,1);
+  animation: shoot 9s linear infinite; /* 4s animation + 5s pause */
+}
+
+.shooting-star::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  right: 1px;
+  height: 1px;
+  width: 100px;
+  background: linear-gradient(to left, rgba(255,255,255,0.8), transparent);
+}
+
+@keyframes shoot {
+  0%, 55.55% { /* 5s pause at start (5/9 = 55.55%) */
+    transform: translate(0, 0) rotate(-45deg);
+    opacity: 0;
+  }
+  61.11% { /* Start fade in */
+    opacity: 1;
+  }
+  88.88% { /* Start fade out */
+    opacity: 1;
+  }
+  100% {
+    transform: translate(1000px, -1000px) rotate(-45deg);
+    opacity: 0;
+  }
+}
+
+/* Update the grid overlay */
+.grid-overlay {
+  position: absolute;
+  inset: 0;
+  background-image: 
+    linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+  background-size: 50px 50px;
+  pointer-events: none;
+}
+
+@keyframes gradient-x {
+  0%, 100% {
+    background-size: 200% 100%;
+    background-position: left center;
+  }
+  50% {
+    background-position: right center;
+  }
+}
+
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-gradient-x {
+  animation: gradient-x 15s ease infinite;
+}
+
+.animate-fade-in {
+  animation: fade-in 0.6s ease-out forwards;
+}
+
+.animate-fade-in-delayed {
+  opacity: 0;
+  animation: fade-in 0.6s ease-out forwards;
+  animation-delay: 0.2s;
+}
+
+/* Custom slider styles */
+.slider-input {
+  --range-progress: 0%;
+  
+  &::-webkit-slider-thumb {
+    appearance: none;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    background: #7C3AED;
+    cursor: pointer;
+    border: 2px solid #fff;
+    transition: all 0.2s ease;
+  }
+  
+  &::-webkit-slider-thumb:hover {
+    background: #9F67FF;
+    transform: scale(1.1);
+  }
+  
+  &::-webkit-slider-runnable-track {
+    background: linear-gradient(
+      to right,
+      #7C3AED var(--range-progress),
+      #251D40 var(--range-progress)
+    );
+    border-radius: 1rem;
+    height: 0.5rem;
+  }
+
+  /* Firefox styles */
+  &::-moz-range-thumb {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    background: #7C3AED;
+    cursor: pointer;
+    border: 2px solid #fff;
+    transition: all 0.2s ease;
+  }
+  
+  &::-moz-range-track {
+    background: #251D40;
+    border-radius: 1rem;
+    height: 0.5rem;
+  }
 }
